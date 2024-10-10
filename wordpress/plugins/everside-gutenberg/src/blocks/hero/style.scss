@@ -1,0 +1,231 @@
+.wp-block-everside-hero {
+  background-color: $white;
+  background-position: center bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  //width: 100%;
+
+  @include media-breakpoint-down(xs) {
+    background-image: none !important;
+  }
+
+  @include media-breakpoint-up(sm) {
+    //background-image: url("../images/hero-homepage.png");
+    //background-position: center;
+    background-size: cover;
+    height: rem-calc(300px + $navbar-main-height);
+    margin-top: rem-calc(-$navbar-main-height);
+  }
+
+  @include media-breakpoint-up(xl) {
+    background-size: contain;
+  }
+
+
+  // has a hero image
+  &.has-image {
+    @include media-breakpoint-up(sm) {
+      height: rem-calc(600px + $navbar-main-height);
+    }
+  }
+
+
+  //generate background colors
+  @each $background-color in $background-colors {
+    &.-wave-bg.background--#{$background-color} {
+      //@extend %background--#{$background-color};
+      background-color: var(--#{$background-color});
+
+      &::before {
+        background-color: transparent;
+      }
+    }
+  }
+
+  // hardcode this light gray color
+  &.-wave-bg.background--light-gray {
+    background-color: #eae9ee;
+
+    &::before {
+      background-color: transparent;
+    }
+  }
+
+
+  &.-wave-bg {
+    .content-image::before {
+      @extend .-wave-bg::before;
+    }
+  }
+
+  &.-wave-color {
+    margin-bottom: 0;
+  }
+
+  .container {
+    height: 100%;
+
+    > .row {
+      height: 100%;
+      text-align: center;
+
+      @include media-breakpoint-up(sm) {
+        align-items: center;
+        padding-top: 0;
+        text-align: left;
+      }
+
+      .content-area {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        padding-top: 2rem;
+
+        @include media-breakpoint-up(sm) {
+          align-items: flex-start;
+          background-color: transparent;
+        }
+      }
+
+      .content-image {
+        display: flex;
+        justify-content: center;
+        //z-index: -1;
+        min-height: 100px;
+        height: auto;
+        width: auto;
+
+
+        @include media-breakpoint-up(sm) {
+          display: none;
+        }
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+
+    }
+  }
+
+  h1 {
+    font-size: rem-calc(27px);
+    font-weight: bold;
+    line-height: rem-calc(33px);
+    margin-bottom: 1rem;
+    width: 70%;
+
+    @include media-breakpoint-up(sm) {
+      font-size: rem-calc(47px);
+      line-height: rem-calc(45px);
+      margin-bottom: 2rem;
+      text-align: left;
+      width: auto;
+    }
+
+    @include media-breakpoint-up(lg) {
+      font-size: rem-calc(67px);
+      line-height: rem-calc(75px);
+    }
+  }
+
+  h2 {
+    font-size: rem-calc(14px);
+    font-weight: normal;
+    line-height: rem-calc(16px);
+    margin-bottom: 1rem;
+    text-align: left;
+    width: 70%;
+
+    @include media-breakpoint-up(sm) {
+      font-size: rem-calc(18px);
+      line-height: rem-calc(20px);
+      margin-bottom: 2rem;
+      width: auto;
+      max-width: 50%;
+    }
+
+    @include media-breakpoint-up(md) {
+      max-width: 80%;
+    }
+
+    @include media-breakpoint-up(lg) {
+      font-size: rem-calc(22px);
+      line-height: rem-calc(26px);
+      max-width: 50%;
+    }
+  }
+
+  p {
+    font-size: rem-calc(15px);
+  }
+
+}
+
+
+
+.wp-block-everside-hero-2column {
+  margin-bottom: 4rem;
+
+  .content-image {
+    margin-bottom: 1rem;
+
+    @include media-breakpoint-up(md) {
+      margin-bottom: 0;
+    }
+    img {
+      border-radius: $border-radius;
+    }
+  }
+
+  .content-area {
+    address {
+      color: $color-blue;
+      font-size: rem-calc(22px);
+      font-weight: bold;
+      line-height: rem-calc(28px);
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: rem-calc(50px);
+      font-weight: lighter;
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      font-size: rem-calc(22px);
+      font-weight: bold;
+      line-height: rem-calc(28px)
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+
+
+  // for the bios only
+  &.header-bios {
+    margin-top: 1rem;
+
+    .content-area {
+      h1 {
+        padding-bottom: 0;
+        margin-bottom: 0;
+
+        &::after {
+          border-bottom: none;
+        }
+      }
+
+      h2 {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}

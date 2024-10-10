@@ -1,0 +1,10 @@
+[data-type="everside/hero"] {
+  .wp-block-everside-hero {
+    height: auto;
+    margin-top: 0; // remove the overlap, which is used for nudging the hero up behind the menu, on the front end
+
+    h2 {
+      max-width: 100%;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+
+@import "../../themes/paladina/resources/assets/styles/common/variables";
+
+@import "styles/common/bootstrap";
+
+
+@import "../../themes/paladina/resources/assets/styles/common/mixins";
+
+
+
+@import "styles/common/global";
+@import "styles/common/colors";
+@import "styles/common/images";
+@import "styles/common/editor";
+@import "styles/common/wp-block";
+
+@import "styles/components/backgrounds";
+@import "styles/components/modals";

@@ -1,0 +1,77 @@
+.wp-component-image-editor {
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 10px;
+  max-width: 100% !important;
+  width: 100%;
+
+  h3 {
+    font-weight: normal;
+    max-width: 100%;
+  }
+
+  p.help {
+    color: #757575;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: normal;
+    margin-top: -1rem;
+    max-width: 100%;
+  }
+
+  &__change-image {
+    background-color: $white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+  }
+
+  &__edit-image {
+    background: none;
+    border: 0;
+    padding: 0;
+
+
+    &:hover {
+      //outline: 2px solid #027CBA;
+
+      .wp-component-image-editor__edit-image-label {
+        opacity: 1;
+      }
+    }
+
+    &-label {
+      pointer-events: none;
+      position: absolute;
+      //top: -2px;
+      right: 0;
+      padding: 4px 8px;
+      font-size: 13px;
+      background-color: #027CBA;
+      margin: 0;
+      color: white;
+      font-weight: normal;
+      opacity: 0;
+      white-space: nowrap;
+    }
+  }
+
+  &__select-image {
+    border-radius: 2px;
+    background-color: #f0f0f0;
+    display: inline;
+    min-height: 90px;
+    line-height: 20px;
+    padding: 8px 0;
+    text-align: center;
+    width: 100%;
+
+    &:hover {
+      background: #ddd;
+      color: #1e1e1e;
+    }
+  }
+
+}
