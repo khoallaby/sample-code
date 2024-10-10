@@ -23,3 +23,6 @@ Just a small sampling of some of my latest code. Some parts may be truncated for
 - sample [theme](wordpress/themes/everside), originally created from the [sage theme](https://roots.io/sage/), which demonstrates a typical CPT, [clinic](wordpress/themes/everside/app/functions/Clinics.php). 
   - As well as integration with [Salesforce](wordpress/themes/everside/app/functions/Salesforce.php), to pull and sync data to the Wordpress site
   - Views are located [here](wordpress/themes/everside/resources/views) 
+- #### WooCommerce
+  - [Custom plugin](wordpress/woocommerce/build-a-palette) that generates/draws a make up palette (for a cosmetics company) on a `<canvas>` layer. Which is based on the user's selections of desired colors/swatches. These colors are also implemented on the admin side, via custom fields, and are specific per each Woocommerce product.
+  - The swatches are generated on this [palette here](wordpress/woocommerce/build-a-palette/images/palette.jpg)
