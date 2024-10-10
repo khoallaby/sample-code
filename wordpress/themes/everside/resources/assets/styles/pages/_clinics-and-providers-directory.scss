@@ -1,0 +1,21 @@
+.post-type-archive-clinic,
+.post-type-archive-provider {
+  .wp-block {
+    &-everside-cards {
+      .body {
+        .content {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          justify-content: flex-end;
+        }
+      }
+    }
+
+
+    &-everside-hero {
+      height: rem-calc(400px + $navbar-main-height);
+    }
+
+  }
+}

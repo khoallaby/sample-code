@@ -1,0 +1,301 @@
+$mobile-menu-breakpoint: "lg";
+$menu-triangle-size: 5px;
+
+nav {
+  a {
+    text-decoration: none;
+  }
+
+  ul {
+    li {
+      padding-left: 0;
+    }
+  }
+
+  &.nav-utility {
+    background-color: white;
+    border-bottom: 1px solid #d6d6d6;
+    color: black;
+    display: none;
+    font-size: rem-calc(15px);
+    font-weight: normal;
+    text-align: right;
+
+    @include media-breakpoint-up($mobile-menu-breakpoint) {
+      display: block;
+    }
+
+    ul.nav {
+      justify-content: flex-end;
+
+      li {
+        a {
+          display: block;
+          padding: 0.5rem 1rem;
+        }
+      }
+    }
+  }
+
+
+
+  &.nav-primary {
+    align-items: center;
+    display: flex;
+    background-color: #ffffffed;
+    font-size: rem-calc(16px);
+    font-weight: bold;
+    min-height: $navbar-main-height;
+
+    > .container {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+    }
+
+
+    .menu-primary-menu-container {
+      display: flex;
+      align-items: center;
+
+      ul.nav {
+        background: white;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.4);
+        display: block;
+        height: calc(100vh - #{$navbar-main-height});
+        left: 0;
+        opacity: 0;
+        order: 1;
+        position: absolute;
+        transition: $transition-fade;
+        top: $navbar-main-height;
+        width: 100%;
+        visibility: hidden;
+
+        @include media-breakpoint-up($mobile-menu-breakpoint) {
+          background: transparent;
+          box-shadow: none;
+          display: flex;
+          height: auto;
+          opacity: 1;
+          visibility: visible;
+          position: unset;
+        }
+
+        &.is-active {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        // first level link
+        > li {
+          background-color: $color-very-light-green;
+          border-bottom: 2px solid $white;
+
+          @include media-breakpoint-up($mobile-menu-breakpoint) {
+            background-color: transparent;
+            border-bottom: none;
+
+            // css hover, in case JS is disabled
+            /*
+            &:hover {
+              > .sub-menu {
+                opacity: 1;
+                visibility: visible;
+                //display: block;
+              }
+            }
+            */
+          }
+
+          > a {
+            display: block;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+          }
+
+
+          // the sub menu
+          > .sub-menu {
+            display: none;
+            padding-left: 0;
+
+            @include media-breakpoint-up($mobile-menu-breakpoint) {
+              background-color: $color-very-light-green;
+              border-bottom-left-radius: $border-radius;
+              border-bottom-right-radius: $border-radius;
+              box-shadow: $box-shadow;
+              display: none;
+              left: 50%; // centers the submenu, relative to the parent
+              min-width: rem-calc(160px);
+              opacity: 0;
+              position: absolute;
+              transform: translateX(-50%);
+              z-index: 30;
+
+
+              // triangle centered above the submenu
+              &::before {
+                content: "";
+                filter: drop-shadow(0px -1px 1px rgba(0, 0, 0, 0.3));
+                position: absolute;
+                left: 50%; // centers the submenu, relative to the parent
+                transform: translateX(-50%);
+                border-left: $menu-triangle-size solid transparent;
+                border-right: $menu-triangle-size solid transparent;
+                border-bottom: $menu-triangle-size solid $color-very-light-green;
+                height: 0;
+                top: -4px;
+                width: 0;
+              }
+            }
+
+            > li {
+              border-top: 1px solid $color-very-light-gray;
+
+              @include media-breakpoint-up($mobile-menu-breakpoint) {
+                border-top-color: #d8d8d8;
+                text-align: center;
+              }
+
+              > a {
+                display: block;
+                padding: 0.5rem 1rem;
+
+                @include media-breakpoint-up($mobile-menu-breakpoint) {
+                  font-size: rem-calc(15px);
+                  font-weight: normal;
+                }
+              }
+            }
+          }
+
+
+          // arrows on mobile
+          &.menu-item-has-children {
+            position: relative;
+
+            &::before {
+              background-image: url("../images/icon-menu-arrow-down.svg");
+              background-repeat: no-repeat;
+              content: "";
+              display: block;
+              position: absolute;
+              height: 20px;
+              right: 0;
+              top: 15px;
+              width: 20px;
+            }
+
+            &:hover::before {
+              background-image: url("../images/icon-menu-arrow-down-hover.svg");
+            }
+
+            &.is-open::before {
+              background-image: url("../images/icon-menu-arrow-up.svg");
+            }
+
+            @include media-breakpoint-up($mobile-menu-breakpoint) {
+              &::before,
+              &:hover::before,
+              &.is-open::before {
+                background-image: none;
+              }
+            }
+          }
+
+          &.is-open {
+            background-color: $white;
+
+            @include media-breakpoint-up($mobile-menu-breakpoint) {
+              background-color: transparent;
+            }
+
+            > a {
+              color: $color-bright-green;
+            }
+
+            > .sub-menu {
+              opacity: 1;
+              visibility: visible;
+              animation: menuFadeIn 0.5s ease-in-out;
+              display: block;
+
+              @include media-breakpoint-up($mobile-menu-breakpoint) {
+                display: unset;
+                //height: auto;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    #mobile-menu-toggle {
+      border: 0;
+      height: 19px;
+      margin: 0 1rem 0 0;
+      padding: 0;
+
+      .menu-icon {
+        display: inline-block;
+        width: 23px;
+        height: 19px;
+        background: $color-green;
+        mask-image: url("../images/icon-menu.svg");
+        mask-size: contain;
+        mask-repeat: no-repeat;
+        -webkit-mask-image: url("../images/icon-menu.svg");
+        -webkit-mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        transition: $transition-fade;
+
+        &:hover,
+        &:focus {
+          background: $color-bright-green;
+        }
+
+      }
+
+
+      &::after {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      &.is-active {
+        // triangle centered above the submenu
+        &::after {
+          background-image: url("../images/mobile-menu-triangle-green.png");
+          background-repeat: no-repeat;
+          bottom: 0;
+          content: "";
+          display: block;
+          opacity: 1;
+          position: absolute;
+          transform: translateX(-5px);
+          height: 13px;
+          width: 32px;
+          visibility: visible;
+          z-index: 50;
+        }
+
+        // when the first submenu is clicked, show a different image
+        &.click-first-menu::after {
+          background-image: url("../images/mobile-menu-triangle-white.png");
+        }
+
+        .menu-icon {
+          mask-image: url("../images/icon-close.svg");
+          -webkit-mask-image: url("../images/icon-close.svg");
+        }
+      }
+
+      @include media-breakpoint-up($mobile-menu-breakpoint) {
+        display: none;
+      }
+    }
+
+  }
+
+}

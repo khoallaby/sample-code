@@ -1,0 +1,51 @@
+.btn,
+.wp-block-button__link {
+  border-radius: $border-radius;
+  border-width: 2px;
+  font-size: rem-calc(16px);
+  font-weight: normal;
+  //outline: 0;
+  padding: 0.5rem 2.5rem;
+  text-decoration: none;
+
+  &.btn-sm {
+    font-size: rem-calc(14px);
+  }
+
+  &.btn-lg {
+    font-size: rem-calc(20px);
+  }
+
+  &.btn-primary {
+    &:hover {
+      background-color: $color-bright-green;
+      border-color: $color-bright-green;
+    }
+
+  }
+
+  &.btn-outline {
+    &-default,
+    &-primary,
+    &-secondary,
+    &-tertiary {
+      //border-width: 2px;
+    }
+
+
+    &-white {
+      border-color: $white;
+      color: $white;
+
+      &:hover {
+        background-color: $white;
+        color: $black;
+      }
+    }
+  }
+
+}
+
+.wp-block-button__link {
+  @extend .btn-primary;
+}

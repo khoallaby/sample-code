@@ -1,0 +1,52 @@
+/** Import Bootstrap functions */
+@import "~bootstrap/scss/functions";
+
+
+$color-green: #095540;
+$color-bright-green: #00AC69;
+
+$color-purple: #510C76;
+$color-blue: #003953;
+$color-red: #A00909;
+$color-dark-gray: #4A4A4A;
+
+$color-very-light-green: #f5fbf7;
+$color-very-light-blue: #f4fafb;
+$color-very-light-blue2: #dfeff1;
+$color-very-light-purple: #f0ecf4;
+$color-very-light-gray: #f1f3f4;
+
+$theme-colors: (
+  "primary": $color-green,
+  "green": $color-green,
+  "bright-green": $color-bright-green,
+  "very-light-green": $color-very-light-green,
+
+  "secondary": $color-purple,
+  "purple": $color-purple,
+  "very-light-purple": $color-very-light-purple,
+
+  "tertiary": $color-blue,
+  "blue": $color-blue,
+  "very-light-blue": $color-very-light-blue,
+
+  "dark-gray": $color-dark-gray,
+  "very-light-gray": $color-very-light-gray,
+);
+
+
+$font-family: "Lato", sans-serif;
+
+// base font-size (px) for calculating rem
+$rem-base: 16px;
+$border-radius: 0.6rem;
+$box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
+$transition-fade: all 0.5s ease-in-out;
+/** Bootstrap navbar fix (https://git.io/fADqW) */
+$navbar-dark-toggler-icon-bg: none;
+$navbar-light-toggler-icon-bg: none;
+
+$navbar-main-height: 75px;
+
+
+$background-colors: "very-light-green", "very-light-purple", "very-light-blue";
